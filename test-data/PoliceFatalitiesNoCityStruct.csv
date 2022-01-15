@@ -1,9 +1,9 @@
 UID;INTEGER;ID;NULL;-1;-1
 Name;STRING;ID;NULL;-1;-1
-Age;INTEGER;QUID;data/hierarchy_age.csv;-1;-1
-Gender;STRING;QUID;data/hierarchy_gender.csv;-1;-1
-Race;STRING;SENS;data/hierarchy_race.csv;-1;-1
-Date;DATE;QUID;data/hierarchy_date.csv;-1;0
+Age;INTEGER;QUID;test-data/hierarchy_age.csv;-1;-1
+Gender;STRING;QUID;test-data/hierarchy_gender.csv;-1;-1
+Race;STRING;SENS;test-data/hierarchy_race.csv;-1;-1
+Date;DATE;QUID;test-data/hierarchy_date.csv;-1;0
 City;STRING;UNID;NULL;-1;-1;
 State;STRING;UNID;NULL;-1;-1
 Manner_of_death;STRING;UNID;NULL;-1;-1
