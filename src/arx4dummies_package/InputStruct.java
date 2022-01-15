@@ -1,4 +1,4 @@
-package arxprova_15_01;
+package arx4dummies_package;
 import org.deidentifier.arx.DataType;
 import org.deidentifier.arx.AttributeType;
 import org.deidentifier.arx.AttributeType.Hierarchy;

@@ -1,4 +1,4 @@
-package arxprova_15_01;
+package arx4dummies_package;
 import org.deidentifier.arx.ARXResult;
 import org.deidentifier.arx.Data;
 import java.io.IOException;

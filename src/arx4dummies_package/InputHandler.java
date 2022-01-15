@@ -1,4 +1,4 @@
-package arxprova_15_01;
+package arx4dummies_package;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -32,6 +32,7 @@ public class InputHandler{
 	}
 	
 	private void importCSVData(String strPath){	
+		
 		this.source = DataSource.createCSVSource(strPath, StandardCharsets.UTF_8, ';',true);
 	}
 	

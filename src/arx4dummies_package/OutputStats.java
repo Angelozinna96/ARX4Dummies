@@ -1,4 +1,4 @@
-package arxprova_15_01;
+package arx4dummies_package;
 
 import java.text.DecimalFormat;
 import java.util.Arrays;

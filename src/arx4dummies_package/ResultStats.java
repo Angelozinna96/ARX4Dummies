@@ -1,4 +1,4 @@
-package arxprova_15_01;
+package arx4dummies_package;
 
 import java.util.ArrayList;
 import java.util.Arrays;
