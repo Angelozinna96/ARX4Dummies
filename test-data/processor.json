@@ -1,0 +1,1 @@
+{ "GeneralSettings":	{ "PrivacyModel" : [ ["AverageReidentificationRisk",0.1]],"setSuppressionLimit": 0.5	} ,"SensitiveAttrSettings": {	"PrivacyModel" : [ ["EqualDistanceTCloseness","Race",0.5]]}}	 }
