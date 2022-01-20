@@ -116,7 +116,7 @@ public class JsonImporter implements ConfigImporter {
 	public JsonImporter(){
 		obj=null;
 	} 
-    public void importFromFile(String path){
+    public int importFromFile(String path){
         //JSON parser object to parse read file
 	 	 try
 	 	 {
@@ -130,9 +130,12 @@ public class JsonImporter implements ConfigImporter {
  
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+			return -1;
         } catch (IOException e) {
             e.printStackTrace();
+			return -2;
         }
+		return 0;
 	 	 
     }
  

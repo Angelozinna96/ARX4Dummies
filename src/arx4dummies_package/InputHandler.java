@@ -1,6 +1,7 @@
 package arx4dummies_package;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -31,12 +32,19 @@ public class InputHandler{
 		this.source = null;
 	}
 	
-	private void importCSVData(String strPath){	
+	private int importCSVData(String strPath){	
 		
+		File f = new File(strPath);
+		if(!f.exists())
+		{
+			System.out.println("Can not find file: "+strPath+" !");
+			return -1;
+		}
 		this.source = DataSource.createCSVSource(strPath, StandardCharsets.UTF_8, ';',true);
-	}
+		return 0;
+		}
 	
-	private void importCSVStruct(String strPath){
+	private int importCSVStruct(String strPath){
 		String name,strType,strPriv,strMode, attr[];
     	DataType type;
     	AttributeType atype;
@@ -45,7 +53,12 @@ public class InputHandler{
     	
     	Path pathToFile = Paths.get(strPath);
     	int i=0;
-    	
+    	File f = new File(strPath);
+		if(!f.exists())
+		{
+			System.out.println("Can not find file: "+strPath+" !");
+			return -1;
+		}
     	try (BufferedReader br = Files.newBufferedReader(pathToFile,StandardCharsets.US_ASCII)) 
     	{
     		// read the first line from the text file 
@@ -113,12 +126,14 @@ public class InputHandler{
     	catch (IOException ioe) 
     	{
     		ioe.printStackTrace();
+			return -2;
         }
     	catch (Exception ioe) 
     	{
     		ioe.printStackTrace();
+			return -3;
         }
-    	return;
+    	return 0;
 	}
 	
 	private void createData() throws Exception {
@@ -236,13 +251,25 @@ public class InputHandler{
 		return null;
 		
 	}
-	public void initData(String dataPath, String structPath) throws Exception {
+	public int initData(String dataPath, String structPath) throws Exception {
 
-			importCSVData(dataPath);
-			importCSVStruct(structPath);
-			createData();
-			createDataDef();
-			setHierarchies();
+		int error;	
+		error=importCSVData(dataPath);
+		if (error < 0)
+		{
+			System.out.println("Error found on inporting CSV input file, exiting!");
+			return -1;
+		}
+		error=importCSVStruct(structPath);
+		if (error < 0)
+		{
+			System.out.println("Error found on inporting CSV struct file, exiting!");
+			return -2;
+		}
+		createData();
+		createDataDef();
+		setHierarchies();
+		return 0;
 		
 	}
 	

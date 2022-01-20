@@ -41,8 +41,11 @@ public class ARX4Dummies
 	{
 		try 
 		{
+			int error=0;
 			inputData = InputHandler.getInstance();
-			inputData.initData(inputDataPath,inputSettingsPath);
+			error=inputData.initData(inputDataPath,inputSettingsPath);
+			if (error < 0)
+				throw new Exception();
 			this.inputFormattedData = inputData.getFormattedData();
 			
 		}catch(Exception e)
